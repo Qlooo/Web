@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Шоколадница</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+  <h1>Шоколадница</h1>
+  <nav>
+    <ul>
+      <li><a href="#">Каталог</a></li>
+      <li><a href="#">Акции</a></li>
+      <li><a href="#">Доставка</a></li>
+      <li><a href="#">Контакты</a></li>
+      <li><a href="#" id="change-price-link">Изменить цену</a></li>
+    </ul>
+  </nav>
+  <button id="change-title-btn">Изменить заголовок</button>
+</header>
+
+<main>
+  <h2>Каталог товаров</h2>
+
+  <section class="product-grid">
+    <div class="product">
+      <h3>Блины "Легендарные с шоколадом"</h3>
+      <img src="mmm.jpg" alt="Фото товара 1">
+      <p class="price">Цена: 100 руб.</p>
+      <a href="src/blin1.html">Подробнее</a>
+    </div>
+
+    <div class="product">
+      <h3>Блины с икрой</h3>
+      <img src="bliny-s-krasnoi-ikroi_1575243579_10_max.jpg" alt="Фото товара 2">
+      <p>Цена: 200 руб.</p>
+      <a href="src/blin2.html">Подробнее</a>
+    </div>
+
+    <div class="product">
+      <h3>Блины с мясом</h3>
+      <img src="с мясом.jpg" alt="Фото товара 3">
+      <p>Цена: 300 руб.</p>
+      <a href="src/blin3.html">Подробнее</a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const changeTitleBtn = document.getElementById('change-title-btn');
+  const pageTitle = document.querySelector('h1');
+
+  changeTitleBtn.addEventListener('click', function() {
+    pageTitle.textContent = 'Шоколадница всегда с тобой!';
+  });
+
+  const changePriceLink = document.getElementById('change-price-link');
+  const firstPriceBlock = document.querySelector('.price');
+
+  changePriceLink.addEventListener('click', function() {
+    firstPriceBlock.textContent = 'Новая цена: 500 руб.';
+  });
+
+
+</script>
+
+<script>
+  fetch('https://6448bd7ee7eb3378ca34a120.mockapi.io/gg')
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+    });
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Примеры на JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Примеры на JavaScript</h1>
+
+    <script>
+      // Задание 1
+      function task1() {
+        let userInput = prompt("Введите любое число");
+        alert(`Вы ввели число: ${userInput}`);
+      }
+
+      // Задание 2
+      function task2() {
+        let num1 = prompt("Введите первое число:");
+        let num2 = prompt("Введите второе число:");
+
+        let sum = +num1 + +num2;
+        let diff = num1 - num2;
+        let mult = num1 * num2;
+        let div = num1 / num2;
+
+        alert(`Сумма: ${sum}\nРазность: ${diff}\nПроизведение: ${mult}\nЧастное: ${div}`);
+      }
+
+      // Задание 3
+      function task3() {
+        let num = prompt("Задумайте число");
+        num = num * 2 + 7;
+        alert(`Ваше число: ${num}`);
+      }
+
+      // Задание 4
+      function task4() {
+        let userName = prompt("Введите ваше имя:");
+        let birthYear = prompt("Введите год вашего рождения:");
+        let age = new Date().getFullYear() - birthYear;
+
+        document.write(`${userName}: ${age}`);
+      }
+    </script>
+
+    <button onclick="task1()">Задание 1</button>
+    <button onclick="task2()">Задание 2</button>
+    <button onclick="task3()">Задание 3</button>
+    <button onclick="task4()">Задание 4</button>
+  </body>
+</html>

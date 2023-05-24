@@ -1,0 +1,103 @@
+$var1: #f8f8f8;
+$var2: #eaeaea;
+$var3: #cccccc;
+$var4: #090808;
+$var5: #e84c3d;
+$var6: #ffffff;
+$var7: #c74334;
+
+// Миксин для цветов ссылок
+@mixin link-colors($bg-color, $text-color, $hover-color) {
+    text-decoration: none;
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    &:hover {
+        background-color: $hover-color;
+    }
+}
+
+%list-styles {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background-color: $var1;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+header {
+	background-color: $var2;
+	padding: 10px 0;
+	h1 {
+		margin: 0;
+		text-align: center;
+	}
+}
+nav ul {
+	display: flex;
+	justify-content: space-between;
+	@extend %list-styles;
+
+	li {
+	margin: 0 10px;
+    }
+}
+
+.product {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 400px;
+	border: 1px solid $var3;
+	margin: 10px;
+	img {
+		width: 200px;
+		height: 200px;
+		object-fit: cover;
+		margin-bottom: 10px;
+	}
+	h3 {
+		font-size: 20px;
+		font-weight: bold;
+		margin: 0;
+		text-align: center;
+	}
+	p {
+		font-size: 16px;
+		margin: 5px 0;
+	}
+	.price {
+		font-size: 20px;
+		color: @var4;
+		margin: 5px 0;
+	}
+	a {
+		// Используем миксин для цветов ссылок
+        @include link-colors($var5, $var6, $var7);
+	}
+}
+section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+}
+footer {
+	background-color: $var2;
+	padding: 10px 0;
+	text-align: center;
+}
+
+
+
+
+
+

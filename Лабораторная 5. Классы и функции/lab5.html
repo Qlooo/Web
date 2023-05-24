@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Задачи на java script</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+<h2>Введите строку для проверки на палиндром:</h2>
+<input id="palindrome-input" type="text">
+<button onclick="checkPalindrome()">Проверить</button>
+<p id="palindrome-result"></p>
+
+<h2>Результат замены отрицательных чисел их квадратами:</h2>
+<p id="array-result"></p>
+
+<h2>Результат использования классов:</h2>
+<p id="class-result"></p>
+
+<script>
+  // 1. Функция, проверяющая, является ли переданная строка палиндромом
+  function isPalindrome(str) {
+    let reversedStr = str.split('').reverse().join('');
+    return str === reversedStr;
+  }
+
+  function checkPalindrome() {
+    let inputVal = document.getElementById('palindrome-input').value;
+    let result = isPalindrome(inputVal);
+    document.getElementById('palindrome-result').textContent = result ? 'Строка является палиндромом' : 'Строка не является палиндромом';
+  }
+
+  // 2. Замена отрицательных элементов в числовом массиве на их квадраты
+  function replaceNegatives(arr) {
+    return arr.map(el => el < 0 ? el ** 2 : el);
+  }
+
+  let originalArr = [-1, -2, 3, 4, -5];
+  let resultArr = replaceNegatives(originalArr);
+  document.getElementById('array-result').textContent = `Исходный массив: [${originalArr.join(', ')}]. Новый массив: [${resultArr.join(', ')}]`;
+
+  // 3. Класс, который сохраняет имя пользователя и выводит его на экран
+  class User {
+    constructor(name) {
+      this.name = name;
+    }
+    greet() {
+      return `Привет, ${this.name}!`;
+    }
+  }
+  let user = new User('Дмитрий');
+
+  // 4. Класс, который переворачивает имя пользователя
+  class ReversedName {
+    constructor(name) {
+      this.name = name;
+    }
+    getReversedName() {
+      return this.name.split('').reverse().join('');
+    }
+  }
+  let reversedUser = new ReversedName('Дмитрий');
+
+  document.getElementById('class-result').textContent = `${user.greet()} Имя задом наперед: ${reversedUser.getReversedName()}`;
+</script>
+</body>
+</html>
